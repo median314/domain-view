@@ -6,22 +6,6 @@ import { Center } from '@chakra-ui/layout';
 
 function App() {
   const value = useContext(GlobalContext);
-  const [page, setPage] = useState([]);
-
-  const getCode = () => {
-    setPage(value.webConfig?.message);
-  };
-
-  console.log(page)
-  console.log(value?.webConfig)
-
-  useEffect(() => {
-    getCode()
-
-    return () => {
-      // setPage([]);
-    };
-  }, []);
 
   return (
     <div className="App">
