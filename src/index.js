@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import GlobalProvider from './Hooks/GlobalProvider';
+import { ChakraBaseProvider, ChakraProvider } from '@chakra-ui/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider>
+      <GlobalProvider>
+        <App />
+      </GlobalProvider>
+    </ChakraProvider>
   </React.StrictMode>
 );
 

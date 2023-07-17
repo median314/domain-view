@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import { useContext, useEffect, useState } from 'react';
+import { GlobalContext } from './Hooks/GlobalContext';
 
 function App() {
+  const value = useContext(GlobalContext);
+  const [page, setPage] = useState([]);
+
+  const getCode = async () => {
+    setPage(value.webConfig?.message);
+  };
+
+  console.log(page)
+  console.log(value.webConfig)
+
+  useEffect(() => {
+    getCode();
+
+    return () => {
+      setPage([]);
+    };
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {page?.length === 0 ? (
+        <p>Loading...</p>
+      ) : (
+        page?.map((x) => (
+          <div dangerouslySetInnerHTML={{ __html: x.htmlContent }} />
+        ))
+      )}
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
