@@ -34,7 +34,7 @@ function GlobalProvider({ children }) {
 				subdomain[1] = "deoapp"
 			} 
 			console.log('domains', 'domain', '==', `${subdomain[0]}.${subdomain[1]}`,'this is the query in getwebconfig')
-			const res = await getCollectionWhereFirebase('domains', 'domain', 'array-contains', `${subdomain[0]}.${subdomain[1]}`)
+			const res = await getCollectionWhereFirebase('domains', 'domain', 'array-contains', `${subdomain[0]}.${subdomain[1]}`,)
             console.log(res)
 			const resPages = await getSingleDocumentFirebase(`funnels/${res[0]?.funnelId}/page`, res[0]?.pageId)
 
