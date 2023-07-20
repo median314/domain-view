@@ -3,7 +3,9 @@ import { useContext, useEffect, useState } from 'react';
 import { GlobalContext } from './Hooks/GlobalContext';
 import LoaderComponent from './Components/Spinners/LoaderComponent';
 import { Center } from '@chakra-ui/layout';
+import { inject } from '@vercel/analytics';
 
+inject();
 function App() {
   const value = useContext(GlobalContext);
 
@@ -23,10 +25,5 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
 
 

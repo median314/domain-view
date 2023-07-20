@@ -30,7 +30,7 @@ function GlobalProvider({ children }) {
         console.log(authentication)
 		if (subdomain.length > 0 && subdomain[0] !== 'deoapp') {
 			console.log(subdomain, 'subdomain')
-			if (subdomain[1] === "localhost:3001"){
+			if (subdomain[1] === "localhost:3000"){
 				subdomain[1] = "deoapp"
 			} 
 			console.log('domains', 'domain', '==', `${subdomain[0]}.${subdomain[1]}`,'this is the query in getwebconfig')
