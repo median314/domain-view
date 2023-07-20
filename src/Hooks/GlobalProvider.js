@@ -28,10 +28,10 @@ function GlobalProvider({ children }) {
 	const getWebConfig = async () => {
 		const subdomain = window.location.host.split('.')
         console.log(authentication)
-		if (subdomain.length > 0 && subdomain[0] !== 'deoapp') {
+		if (subdomain.length > 0 && subdomain[0] !== 'terong.site') {
 			console.log(subdomain, 'subdomain')
-			if (subdomain[1] === "localhost:3000"){
-				subdomain[1] = "deoapp"
+			if (subdomain[1] === "localhost:3001"){
+				subdomain[1] = "terong.site"
 			}
 			const res = await getCollectionWhereFirebase('domains', 'domain', 'array-contains', `${subdomain[0]}.${subdomain[1]}`,)
             console.log(res)
